@@ -20,45 +20,55 @@ public class Main {
 
 //        TASK_3
 
-        int deliveryDistance = 61;
-        calculationDelivery(deliveryDistance);
+        int deliveryDistance = 500;
+        if (calculationDelivery(deliveryDistance) != 0) {
+            System.out.println("Доставка займет " + calculationDelivery(deliveryDistance) + " дней");
+        } else {
+            System.out.println("Доставка не осуществляется");
+        }
+
 
     }
 
-    public static void calculationDelivery(int distance) {
-        if (distance <= 20){
-            System.out.println("1 Days");
+    private static int calculationDelivery(int distance) {
+        if (distance <= 20) {
+            return 1;
         }
         else if (distance > 20 && distance <= 60) {
-            System.out.println(" 2 Days");
+            return 2;
         }
         else if (distance > 60 && distance <= 100) {
-            System.out.println("3 Days");
+            return 3;
         }
-        else System.out.println("Доставка не осуществляется");
+        return 0;
     }
-    public static void checkDeviceYear(int year, int operationSys) {
+    private static void checkDeviceYear(int year, int operationSys) {
         if (operationSys == 1){
             if (year < 2015){
                 System.out.println("Установите облегченную версию приложения для iOS по ссылке");
             }
-            else System.out.println("Установите версию приложения для iOS по ссылке");
+            else {
+                System.out.println("Установите версию приложения для iOS по ссылке");
+            }
         }
         else if (operationSys == 0) {
             if (year < 2015){
                 System.out.println("Установите облегченную версию приложения для Android  по ссылке");
             }
-            else System.out.println("Установите версию приложения для Android  по ссылке");
-        }
-        else System.out.println("Ваша ОС не поддерживается");
-    }
-    public static void checkYear(int year) {
-        if (year % 4 == 0 || year % 400 ==0){
-            if (year % 100 != 0) {
-                System.out.println("Год високосный");
+            else {
+                System.out.println("Установите версию приложения для Android  по ссылке");
             }
-            else System.out.println("Год не високосный");
         }
-        else System.out.println("Год не високосный");
+        else {
+            System.out.println("Ваша ОС не поддерживается");
+        }
+    }
+    private static void checkYear(int year) {
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 ==0){
+            System.out.println("Годвисокосный");
+        }
+        else {
+            System.out.println("Год не високосный");
+        }
     }
 }
