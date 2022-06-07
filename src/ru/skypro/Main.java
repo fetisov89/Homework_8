@@ -1,5 +1,6 @@
 package ru.skypro;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
@@ -14,7 +15,7 @@ public class Main {
 
 //        TASK_2
 
-        int clientDevYear = 2014;
+        int clientDevYear = 2015;
         int operationSys = 1;
         checkDeviceYear(clientDevYear, operationSys);
 
@@ -43,8 +44,9 @@ public class Main {
         return 0;
     }
     private static void checkDeviceYear(int year, int operationSys) {
+        int currentYear = LocalDate.now().getYear();
         if (operationSys == 1){
-            if (year < 2015){
+            if (year < currentYear){
                 System.out.println("Установите облегченную версию приложения для iOS по ссылке");
             }
             else {
@@ -52,7 +54,7 @@ public class Main {
             }
         }
         else if (operationSys == 0) {
-            if (year < 2015){
+            if (year < currentYear){
                 System.out.println("Установите облегченную версию приложения для Android  по ссылке");
             }
             else {
